@@ -1,4 +1,4 @@
-# Burp Suite AI Scanner Extension
+# Burp Suite AI Assistant Extension
 
 A Burp Suite extension that uses AI to analyze HTTP requests and identify security vulnerabilities.
 
@@ -30,9 +30,8 @@ The extension JAR will be created in `build/libs/`.
 - Request scanning capabilities ( Beta )
 - Configurable AI settings
 
-## Configuration
+## Configuration for model and System prompt
 
-The extension uses the Pollinations AI API by default. You can configure:
+The extension uses the Pollinations AI API :
 - AI model selection
 - System prompts
-- Analysis parameters
