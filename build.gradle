@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group 'burp.ai.scanner'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.portswigger.net/repository/maven-public/"
+    }
+}
+
+dependencies {
+    implementation 'net.portswigger.burp.extensions:montoya-api:2023.12.1'
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Burp-Extensions': 'burp.BurpAIScanner',
+            'Implementation-Title': 'Burp AI Scanner',
+            'Implementation-Version': project.version
+        )
+    }
+    
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
